@@ -4,12 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ISIP224_Akhlamov
+namespace ConsoleApp2
 {
     internal class Program
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("hello world");
+            Console.WriteLine();
         }
     }
+
 }

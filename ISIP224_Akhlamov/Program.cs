@@ -23,7 +23,11 @@ namespace ISIP224_Akhlamov
                 string FirstName = Console.ReadLine();
                 if (string.IsNullOrWhiteSpace(FirstName))
                 {
-                    throw new Exception("You didn't write a value");
+                    while(string.IsNullOrWhiteSpace(FirstName))
+                    {
+                        Console.WriteLine("Enter FirstName");
+                        FirstName = Console.ReadLine();
+                    }
 
                 }
 
@@ -31,14 +35,23 @@ namespace ISIP224_Akhlamov
                 string LastName = Console.ReadLine();
                 if (string.IsNullOrWhiteSpace(LastName))
                 {
-                    throw new Exception("You didn't write a value");
+                    while (String.IsNullOrWhiteSpace(LastName))
+                    {
+                        Console.WriteLine("Enter LastName");
+                        LastName = Console.ReadLine();
+
+                    }
                 }
 
                 Console.WriteLine("Enter MiddleName");
                 string MiddleName = Console.ReadLine();
                 if (string.IsNullOrWhiteSpace(MiddleName))
                 {
-                    throw new Exception("You didn't write a value");
+                    while(String.IsNullOrWhiteSpace(MiddleName))
+                    {
+                        Console.WriteLine("Enter MiddleName");
+                        MiddleName = Console.ReadLine();
+                    }    
                 }
 
                 Student s = new Student(FirstName, LastName, MiddleName);
@@ -64,7 +77,11 @@ namespace ISIP224_Akhlamov
                 string FirstName = Console.ReadLine();
                 if (string.IsNullOrWhiteSpace(FirstName))
                 {
-                    throw new Exception("You didn't write a value");
+                    while (string.IsNullOrWhiteSpace(FirstName))
+                    {
+                        Console.WriteLine("Enter FirstName");
+                        FirstName = Console.ReadLine();
+                    }
 
                 }
 
@@ -72,14 +89,22 @@ namespace ISIP224_Akhlamov
                 string LastName = Console.ReadLine();
                 if (string.IsNullOrWhiteSpace(LastName))
                 {
-                    throw new Exception("You didn't write a value");
+                    while (string.IsNullOrWhiteSpace(FirstName))
+                    {
+                        Console.WriteLine("Enter LastName");
+                        LastName = Console.ReadLine();
+                    }
                 }
 
                 Console.WriteLine("Enter MiddleName");
                 string MiddleName = Console.ReadLine();
                 if (string.IsNullOrWhiteSpace(MiddleName))
                 {
-                    throw new Exception("You didn't write a value");
+                    while (string.IsNullOrWhiteSpace(MiddleName))
+                    {
+                        Console.WriteLine("Enter LastName");
+                       MiddleName = Console.ReadLine();
+                    }
                 }
 
 
@@ -87,7 +112,11 @@ namespace ISIP224_Akhlamov
                 string Major = Console.ReadLine();
                 if (string.IsNullOrWhiteSpace(Major))
                 {
-                    throw new Exception("You didn't write a value");
+                    while(string.IsNullOrWhiteSpace(Major))
+                    {
+                        Console.WriteLine("Enter Major");
+                        Major = Console.ReadLine();
+                    }
                 }
 
 
@@ -114,14 +143,22 @@ namespace ISIP224_Akhlamov
                 string Name = Console.ReadLine();
                 if (string.IsNullOrWhiteSpace(Name))
                 {
-                    throw new Exception("You didn't write a value");
+                    while (string.IsNullOrWhiteSpace(Name))
+                    {
+                        Console.WriteLine("Enter a Name");
+                        Name = Console.ReadLine();
+                    }
 
                 }
                 Console.WriteLine("Enter a Description");
                 string Description = Console.ReadLine();
                 if (string.IsNullOrWhiteSpace(Description))
                 {
-                    throw new Exception("You didn't write a value");
+                    while( string.IsNullOrWhiteSpace(Description))
+                    {
+                        Console.WriteLine("Enter a Description");
+                        Description = Console.ReadLine();
+                    }
 
                 }
 
@@ -146,7 +183,11 @@ namespace ISIP224_Akhlamov
                     user_input = Console.ReadLine();
                     if (string.IsNullOrWhiteSpace(user_input))
                     {
-                        throw new Exception("You didn't choose a value");
+                        while(string.IsNullOrWhiteSpace(user_input))
+                        {
+                            Console.WriteLine("     Menu:\n1 - create new student\n2 - see students info\n3 - create new teacher\n4 - see teachers info\n5 - create new course\n6 - see course info\n7 - enrol student to the course\n8 - set teacher to the course\n9 - exit");
+                            user_input = Console.ReadLine();
+                        }
               
                     }
 
@@ -171,7 +212,11 @@ namespace ISIP224_Akhlamov
                                 string inp = Console.ReadLine();
                                 if(String.IsNullOrWhiteSpace(inp))
                                 {
-                                    throw new Exception("You didn't choose a value");
+                                    while(String.IsNullOrWhiteSpace(inp))
+                                    {
+                                        Console.WriteLine("Enter student number to show more info about student");
+                                        inp = Console.ReadLine();
+                                    }
                                 }
                                 bool parsed = Int32.TryParse(inp, out int val);
                                 if (parsed)
@@ -209,11 +254,15 @@ namespace ISIP224_Akhlamov
 
                                 }
 
-                                Console.WriteLine("Enter student number to show more info about teacher");
+                                Console.WriteLine("Enter number to show more info about teacher");
                                 string inp = Console.ReadLine();
                                 if(String.IsNullOrWhiteSpace(inp))
                                 {
-                                    throw new Exception("You didn't choose a value");
+                                    while( String.IsNullOrWhiteSpace(inp))
+                                    {
+                                        Console.WriteLine("Enter  number to show more info about teacher");
+                                        inp = Console.ReadLine();
+                                    }
                                 }
                                 bool parsed = Int32.TryParse(inp, out int val);
                                 if (parsed)
@@ -255,7 +304,12 @@ namespace ISIP224_Akhlamov
                                 string inp = Console.ReadLine();
                                 if(String.IsNullOrWhiteSpace(inp))
                                 {
-                                    throw new Exception("You didn't choose a value");
+                                    while (String.IsNullOrWhiteSpace(inp))
+                                    {
+                                        Console.WriteLine("Enter student number to show more info about course");
+                                        inp = Console.ReadLine();
+                                    }
+
                                 }
                                 bool parsed = Int32.TryParse(inp, out int val);
                                 if (parsed)
@@ -297,7 +351,11 @@ namespace ISIP224_Akhlamov
                                 string inp = Console.ReadLine();
                                 if (String.IsNullOrWhiteSpace(inp))
                                 {
-                                    throw new Exception("You didn't choose a value");
+                                    while (String.IsNullOrWhiteSpace(inp))
+                                    {
+                                        Console.WriteLine("Enter student number to enroll this student to the course");
+                                        inp = Console.ReadLine();
+                                    }
                                 }
                                 bool parsed = Int32.TryParse(inp, out int val);
                                 if (parsed)
@@ -314,7 +372,11 @@ namespace ISIP224_Akhlamov
                                     string inpu = Console.ReadLine();
                                     if (String.IsNullOrWhiteSpace(inpu))
                                     {
-                                        throw new Exception("You didn't choose a value");
+                                        while(String.IsNullOrWhiteSpace(inpu))
+                                        {
+                                            Console.WriteLine("Enter student number to show more info about course");
+                                            inpu = Console.ReadLine();
+                                        }
                                     }
                                     bool parssed = Int32.TryParse(inp, out int valu);
                                     if (parssed)
@@ -349,7 +411,11 @@ namespace ISIP224_Akhlamov
                                 string inp = Console.ReadLine();
                                 if (String.IsNullOrWhiteSpace(inp))
                                 {
-                                    throw new Exception("You didn't choose a value");
+                                    while(String.IsNullOrWhiteSpace(inp))
+                                    {
+                                        Console.WriteLine("Enter teacher number to enroll this student to the course");
+                                        inp = Console.ReadLine();
+                                    }
                                 }
                                 bool parsed = Int32.TryParse(inp, out int val);
                                 if (parsed)

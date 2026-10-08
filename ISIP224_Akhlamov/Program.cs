@@ -10,8 +10,8 @@ namespace ISIP224_Akhlamov
 {
     internal class Program
     {
-        static List<Employee> students = new List<Employee>();
-        static List<Employee> teachers = new List<Employee>();
+        static List<Student> students = new List<Student>();
+        static List<Teacher> teachers = new List<Teacher>();
         static List<Course> courses = new List<Course>();
 
 
@@ -94,7 +94,7 @@ namespace ISIP224_Akhlamov
 
                 Teacher s = new Teacher(FirstName, LastName, MiddleName, Major);
 
-                students.Add(s);
+                teachers.Add(s);
 
                 return s;
             }
@@ -106,6 +106,33 @@ namespace ISIP224_Akhlamov
 
         }
 
+        static Course CreateCourse()
+        {
+            try
+            {
+                Console.WriteLine("Enter a Name");
+                string Name = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(Name))
+                {
+                    throw new Exception("You didn't write a value");
+
+                }
+                Console.WriteLine("Enter a Description");
+                string Description = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(Description))
+                {
+                    throw new Exception("You didn't write a value");
+
+                }
+
+                Course c  = new Course(Name, Description, new List<Employee>(), new List<Employee>());
+
+                return c;
+
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
         static void Main(string[] args)
         {
             string user_input = "d";
@@ -114,6 +141,7 @@ namespace ISIP224_Akhlamov
             {
                 try
                 {
+                    Console.Clear();
                     Console.WriteLine("     Menu:\n1 - create new student\n2 - see students info\n3 - create new teacher\n4 - see teachers info\n5 - create new course\n6 - see course info\n7 - enrol student to the course\n8 - set teacher to the course\n9 - exit");
                     user_input = Console.ReadLine();
                     if (string.IsNullOrWhiteSpace(user_input))
@@ -129,29 +157,237 @@ namespace ISIP224_Akhlamov
                             break;
 
                         case "2":
-                            Console.WriteLine("students: ");
-                            foreach(var student in students)
+                            try
                             {
-                                Console.WriteLine($"student.FirstName");
-                            }
+                                Console.WriteLine("students: ");
 
+                                foreach (var student in students)
+                                {
+                                    Console.WriteLine($"{students.IndexOf(student)} - {student.FirstName} {student.LastName} {student.MiddleName} | {student.TicketID}");
+
+                                }
+
+                                Console.WriteLine("Enter student number to show more info about student");
+                                string inp = Console.ReadLine();
+                                if(String.IsNullOrWhiteSpace(inp))
+                                {
+                                    throw new Exception("You didn't choose a value");
+                                }
+                                bool parsed = Int32.TryParse(inp, out int val);
+                                if (parsed)
+                                {
+                                    Console.WriteLine($"Student\nFrist name: {students[val].FirstName}\nLast name: {students[val].LastName}\nMiddle name: {students[val].MiddleName}\nTicketID {students[val].TicketID}");
+                                    Console.WriteLine("Courses: ");
+                                    foreach(var c in students[val].courses)
+                                    {
+                                        Console.WriteLine(c.Name);
+                                    }
+                                }
+                                else 
+                                {
+                                    throw new Exception("You need write digital value");
+                                }
+
+
+
+                            }
+                            catch(Exception ex) { throw ex; }
                             break;
 
                         case "3":
                             CreateTeacher();
                             break;
+
                         case "4":
+                            try
+                            {
+                                Console.WriteLine("teachers: ");
+
+                                foreach (var teacher in teachers)
+                                {
+                                    Console.WriteLine($"{teachers.IndexOf(teacher)} - {teacher.FirstName} {teacher.LastName} {teacher.MiddleName} | {teacher.Major}");
+
+                                }
+
+                                Console.WriteLine("Enter student number to show more info about teacher");
+                                string inp = Console.ReadLine();
+                                if(String.IsNullOrWhiteSpace(inp))
+                                {
+                                    throw new Exception("You didn't choose a value");
+                                }
+                                bool parsed = Int32.TryParse(inp, out int val);
+                                if (parsed)
+                                {
+                                    Console.WriteLine($"teacher\nFrist name: {teachers[val].FirstName}\nLast name: {teachers[val].LastName}\nMiddle name: {teachers[val].MiddleName}\nMajor {teachers[val].Major}");
+                                    Console.WriteLine("Courses: ");
+                                    foreach(var c in teachers[val].courses)
+                                    {
+                                        Console.WriteLine(c.Name);
+                                    }
+                                }
+                                else 
+                                {
+                                    throw new Exception("You need write digital value");
+                                }
+
+
+
+                            }
+                            catch(Exception ex) { throw ex; }
                             break;
+
                         case "5":
+                            CreateCourse();
                             break;
+
                         case "6":
+                            try
+                            {
+                                Console.WriteLine("Courses: ");
+
+                                foreach (var course in courses)
+                                {
+                                    Console.WriteLine($"{courses.IndexOf(course)} - {course.Name}");
+
+                                }
+
+                                Console.WriteLine("Enter student number to show more info about course");
+                                string inp = Console.ReadLine();
+                                if(String.IsNullOrWhiteSpace(inp))
+                                {
+                                    throw new Exception("You didn't choose a value");
+                                }
+                                bool parsed = Int32.TryParse(inp, out int val);
+                                if (parsed)
+                                {
+                                    Console.WriteLine($"course\nName: {courses[val].Name}\nDescription: {courses[val].Description}");
+                                    Console.WriteLine("Students: ");
+                                    foreach(var student in courses[val].students)
+                                    {
+                                        Console.WriteLine($"Frist name: {students[val].FirstName} | Last name: {students[val].LastName} | Middle name: {students[val].MiddleName} | TicketID {students[val].TicketID}");
+                                    }
+
+                                    foreach(var teacher  in courses[val].teachers)
+                                    {
+                                        Console.WriteLine($"Frist name: {teachers[val].FirstName} | Last name: {teachers[val].LastName} | Middle name: {teachers[val].MiddleName} | Major {teachers[val].Major}");
+                                    }
+                                }
+                                else 
+                                {
+                                    throw new Exception("You need write digital value");
+                                }
+
+
+
+                            }
+                            catch(Exception ex) { throw ex; }
+
                             break;
+
                         case "7":
+                            try 
+                            {
+                                foreach (var student in students)
+                                {
+                                    Console.WriteLine($"{students.IndexOf(student)} - {student.FirstName} {student.LastName} {student.MiddleName} | {student.TicketID}");
+
+                                }
+
+                                Console.WriteLine("Enter student number to enroll this student to the course");
+                                string inp = Console.ReadLine();
+                                if (String.IsNullOrWhiteSpace(inp))
+                                {
+                                    throw new Exception("You didn't choose a value");
+                                }
+                                bool parsed = Int32.TryParse(inp, out int val);
+                                if (parsed)
+                                {
+                                    Console.WriteLine("Courses: ");
+
+                                    foreach (var course in courses)
+                                    {
+                                        Console.WriteLine($"{courses.IndexOf(course)} - {course.Name}");
+
+                                    }
+
+                                    Console.WriteLine("Enter student number to show more info about course");
+                                    string inpu = Console.ReadLine();
+                                    if (String.IsNullOrWhiteSpace(inpu))
+                                    {
+                                        throw new Exception("You didn't choose a value");
+                                    }
+                                    bool parssed = Int32.TryParse(inp, out int valu);
+                                    if (parssed)
+                                    {
+                                        students[val].Enrol(courses[valu]);
+                                        Console.WriteLine($"Student {students[val].FirstName} {students[val].LastName} enrolled to the course {courses[valu].Name} sucsess");
+                                    }
+                                    else 
+                                    {
+                                        throw new Exception("WRONG VALUE");
+                                    }
+
+                                }
+                                else
+                                {
+                                    throw new Exception("Wrong value need number");
+                                }
+                            }
+                            catch(Exception ex) { throw ex; }
                             break;
+
                         case "8":
+                            try
+                            {
+                                foreach (var teacher in teachers)
+                                {
+                                    Console.WriteLine($"{teachers.IndexOf(teacher)} - {teacher.FirstName} {teacher.LastName} {teacher.MiddleName} | {teacher.Major}");
+
+                                }
+
+                                Console.WriteLine("Enter teacher number to enroll this student to the course");
+                                string inp = Console.ReadLine();
+                                if (String.IsNullOrWhiteSpace(inp))
+                                {
+                                    throw new Exception("You didn't choose a value");
+                                }
+                                bool parsed = Int32.TryParse(inp, out int val);
+                                if (parsed)
+                                {
+                                    Console.WriteLine("Courses: ");
+
+                                    foreach (var course in courses)
+                                    {
+                                        Console.WriteLine($"{courses.IndexOf(course)} - {course.Name}");
+
+                                    }
+
+                                    Console.WriteLine("Enter teacher number to show more info about course");
+                                    string inpu = Console.ReadLine();
+                                    if (String.IsNullOrWhiteSpace(inpu))
+                                    {
+                                        throw new Exception("You didn't choose a value");
+                                    }
+                                    bool parssed = Int32.TryParse(inp, out int valu);
+                                    if (parssed)
+                                    {
+                                        students[val].Enrol(courses[valu]);
+                                        Console.WriteLine($"Teacher {teachers[val].FirstName} {teachers[val].LastName} set to the course {courses[valu].Name} sucsess");
+                                    }
+                                    else
+                                    {
+                                        throw new Exception("WRONG VALUE");
+                                    }
+
+                                }
+                                else
+                                {
+                                    throw new Exception("Wrong value need number");
+                                }
+                            }
+                            catch (Exception ex) { throw ex; }
                             break;
-                        case "9":
-                            break;
+
                         case "e":
                             break;
                     }

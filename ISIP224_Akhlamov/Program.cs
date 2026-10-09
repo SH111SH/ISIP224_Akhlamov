@@ -9,8 +9,50 @@ namespace ISIP224_Akhlamov
     internal class Program
     {
 
+        static List<Weapon> weapons = [new Weapon("pistol", 50)];
+        static List<Armor> armors = [new Armor("helmet", 50)];
 
-        
+        static void Chest(Player player)
+        {
+            Random r = new Random();
+
+            switch(r.Next(1,3))
+            {
+                case 1:
+                    player.HP = 100;
+                    Console.WriteLine("Вам выпало зелье! Ваше здоровье полностью восстановлено");
+                    break;
+
+                case 2:
+                    int w = r.Next(0, weapons.Count());
+                    Console.WriteLine($"Вам выпало оружие {weapons[w].Name} с уроном {weapons[w].Attack}");
+                    Console.WriteLine("Поменять настоящее оружие на данное?\n(1 - да  0 - нет)");
+                    string user_input = Console.ReadLine();
+                    if(user_input == "1")
+                    {
+                        player.weapon = weapons[w];
+                        Console.WriteLine("Оружие заменено");
+                    }
+
+
+                    break;
+
+                    case 3:
+                        int a = r.Next(0, armors.Count());
+                        Console.WriteLine($"Вам выпало оружие {armors[a].Name} c защитой {armors[a].Deffense}");
+                        Console.WriteLine("Поменять настоящие доспехи на данные?\n(1 - да  0 - нет)");
+                        string user_inp = Console.ReadLine();
+                        if(user_inp == "1")
+                        {
+                            player.armor = armors[a];
+                            Console.WriteLine("Доспехи переодеты");
+                        }
+
+
+                        break;
+            }
+        }
+
         static void Fight(Player player, Enemy enemy)
         {
             bool dodged = false;
@@ -127,7 +169,7 @@ namespace ISIP224_Akhlamov
             Player p = new Player(100, new Weapon("Sword", 12), new Armor("FFF", 0.5));
             Goblin g = new Goblin();
 
-            Fight(p, g);
+            Chest(p);
 
         }
     }
@@ -159,8 +201,8 @@ namespace ISIP224_Akhlamov
     public class Player
     {
         public double HP { get; set; }
-        public Weapon weapon { get; private set; }
-        public Armor armor { get; private set; }
+        public Weapon weapon { get;  set; }
+        public Armor armor { get;  set; }
 
         public Player(double HP, Weapon weapon, Armor armor)
         {

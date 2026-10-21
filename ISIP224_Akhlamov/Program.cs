@@ -1,13 +1,16 @@
+using ConsoleApp1;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp5
+namespace ConsoleApp1
 {
     internal class Program
     {
+
+        static User CurrentAccount = null;
         static void Registration()
         {
 
@@ -24,9 +27,9 @@ namespace ConsoleApp5
             String paswd1 = "  ";
             String paswd2 = " ";
 
-           
 
-            while(String.IsNullOrWhiteSpace(paswd1))
+
+            while (String.IsNullOrWhiteSpace(paswd1))
             {
                 Console.WriteLine("Введите пароль:");
                 paswd1 = Console.ReadLine();
@@ -40,7 +43,7 @@ namespace ConsoleApp5
 
             if (paswd2 == paswd1)
             {
-                User user = new User { Login = login, PasswordHash = paswd1, CreatedAt = DateTime.Now};
+                User user = new User { Login = login, PasswordHash = paswd1, CreatedAt = DateTime.Now };
                 Core.Context.User.Add(user);
                 Core.Context.SaveChanges();
             }
@@ -49,7 +52,7 @@ namespace ConsoleApp5
                 Console.WriteLine("пароли не совпадают");
             }
 
-            
+
 
 
         }
@@ -68,7 +71,7 @@ namespace ConsoleApp5
 
             }
 
-            while(String.IsNullOrWhiteSpace(passwd))
+            while (String.IsNullOrWhiteSpace(passwd))
             {
                 Console.WriteLine("Введите пароль");
                 passwd = Console.ReadLine();
@@ -76,17 +79,25 @@ namespace ConsoleApp5
 
             List<User> users = Core.Context.User.ToList();
 
-            if(users.FirstOrDefault(i => i.Login == login) != null) 
+            User user = users.FirstOrDefault(i => i.Login == login && i.PasswordHash == passwd);
+
+            if (user != null)
             {
-                
+                Console.WriteLine("Успешный вход");
+                CurrentAccount = user;
             }
+            else { Console.WriteLine("Неверный логин или пароль"); }
         }
 
 
 
         static void Main(string[] args)
         {
-            Registration();
+            //Registration();
+            Login();
+
+            Console.WriteLine($"Меню:\n1 - каталог товаров\n2 - Корзина\n3 - Заказы");
+
 
         }
     }

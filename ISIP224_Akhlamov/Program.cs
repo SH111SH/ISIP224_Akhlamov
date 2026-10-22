@@ -1,11 +1,11 @@
-using ConsoleApp1;
+using ConsoleApp2;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace ConsoleApp2
 {
     internal class Program
     {
@@ -45,6 +45,8 @@ namespace ConsoleApp1
             {
                 User user = new User { Login = login, PasswordHash = paswd1, CreatedAt = DateTime.Now };
                 Core.Context.User.Add(user);
+                Core.Context.SaveChanges();
+                Core.Context.Cart.Add(new Cart { UserId = user.Id });
                 Core.Context.SaveChanges();
             }
             else
@@ -89,6 +91,25 @@ namespace ConsoleApp1
             else { Console.WriteLine("Неверный логин или пароль"); }
         }
 
+
+        static void ShowProducts(List<Product> products)
+        {
+            Console.WriteLine("Name    Description    Category    Price    Stock");
+            for (int i = 0; i < products.Count(); i++)
+            {
+                Console.WriteLine($"{products[i].Id}.{products[i].Name}    {products[i].Description}    {Core.Context.Category.ToList().FirstOrDefault(j=> j.Id == products[i].CategoryId).Name}    {products[i].Price}    {products[i].Stock}");
+            }
+
+
+            Console.WriteLine("Введите номер товара который хотите добавить в корзину или e если хоите выйти");
+            string user_input = "";
+            while(user_input != "e")
+            {
+                user_input = Console.ReadLine();
+                Core.Context.CartItem.Add(new CartItem { CartId = Core.Context.Cart.ToList().FirstOrDefault(i=> i.UserId == CurrentAccount.Id).Id, ProductId = Convert.ToInt32(user_input) });
+
+            }
+        }
 
 
         static void Main(string[] args)

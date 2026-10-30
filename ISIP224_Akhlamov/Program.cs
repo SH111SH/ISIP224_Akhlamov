@@ -87,26 +87,48 @@ namespace ConsoleApp2
             {
                 Console.WriteLine("Успешный вход");
                 CurrentAccount = user;
+                
             }
             else { Console.WriteLine("Неверный логин или пароль"); }
         }
 
 
+        static void ShowCart()
+        {
+            Console.WriteLine("\n КОРЗИНА: \n");
+            Cart cart = Core.Context.Cart.ToList().FirstOrDefault(j => j.UserId == CurrentAccount.Id);
+            List<CartItem> carti = Core.Context.CartItem.Where(i=> i.CartId == cart.Id).ToList();
+
+            for (int i = 0; i < carti.Count; i++)
+            {
+                Product p = Core.Context.Product.FirstOrDefault(f=>f.Id == carti[i].Id);
+                if (p != null) 
+                {
+
+                }
+            }
+    
+
+        }
+
+
         static void ShowProducts(List<Product> products)
         {
-            Console.WriteLine("Name    Description    Category    Price    Stock");
-            for (int i = 0; i < products.Count(); i++)
-            {
-                Console.WriteLine($"{products[i].Id}.{products[i].Name}    {products[i].Description}    {Core.Context.Category.ToList().FirstOrDefault(j=> j.Id == products[i].CategoryId).Name}    {products[i].Price}    {products[i].Stock}");
-            }
 
 
-            Console.WriteLine("Введите номер товара который хотите добавить в корзину или e если хоите выйти");
             string user_input = "";
-            while(user_input != "e")
+            while (user_input != "e")
             {
+                Console.WriteLine("Введите номер товара который хотите добавить в корзину или e если хоите выйти");
+                Console.WriteLine("Name    Description    Category    Price    Stock");
+                for (int i = 0; i < products.Count(); i++)
+                {
+                    Console.WriteLine($"{products[i].Id}.{products[i].Name}    {products[i].Description}    {Core.Context.Category.ToList().FirstOrDefault(j => j.Id == products[i].CategoryId).Name}    {products[i].Price}    {products[i].Stock}");
+                }
                 user_input = Console.ReadLine();
-                Core.Context.CartItem.Add(new CartItem { CartId = Core.Context.Cart.ToList().FirstOrDefault(i=> i.UserId == CurrentAccount.Id).Id, ProductId = Convert.ToInt32(user_input) });
+                Core.Context.CartItem.Add(new CartItem { CartId = Core.Context.Cart.ToList().FirstOrDefault(i => i.UserId == CurrentAccount.Id).Id, ProductId = Convert.ToInt32(user_input) });
+                Console.WriteLine("Товар добавлен в корзину");
+                Core.Context.SaveChanges();
 
             }
         }
@@ -118,7 +140,8 @@ namespace ConsoleApp2
             Login();
 
             Console.WriteLine($"Меню:\n1 - каталог товаров\n2 - Корзина\n3 - Заказы");
-
+            Console.WriteLine(CurrentAccount.Id);
+            ShowProducts(Core.Context.Product.ToList());
 
         }
     }

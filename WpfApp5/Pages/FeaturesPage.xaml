@@ -12,11 +12,11 @@
         <StackPanel>
             <TextBlock Text="Choose car color" Margin="20,10,20,10" FontSize="20" Width="200"></TextBlock>
             <StackPanel>
-                <RadioButton Content="White" FontSize="20" Width="200"/>
-                <RadioButton Content="Black" FontSize="20" Width="200"/>
-                <RadioButton Content="Red" FontSize="20" Width="200"/>
-                <RadioButton Content="Yellow" FontSize="20" Width="200"/>
-                <RadioButton Content="Magenta" FontSize="20" Width="200"/>
+                <RadioButton Content="White" FontSize="20" Width="200" x:Name="White" IsChecked="True" Checked="ColorRadioButtonChecked"/>
+                <RadioButton Content="Black" FontSize="20" Width="200" x:Name="Black" Checked="ColorRadioButtonChecked"/>
+                <RadioButton Content="Red" FontSize="20" Width="200" x:Name="Red" Checked="ColorRadioButtonChecked"/>
+                <RadioButton Content="Yellow" FontSize="20" Width="200" x:Name="Yellow" Checked="ColorRadioButtonChecked"/>
+                <RadioButton Content="Magenta" FontSize="20" Width="200" x:Name="Magenta" Checked="ColorRadioButtonChecked"/>
                 
 
             </StackPanel>
@@ -24,18 +24,18 @@
             <TextBlock Text="Features" Margin="20,10,20,20" FontSize="20" Width="218"></TextBlock>
 
             <StackPanel>
-                <CheckBox Content="Cruise control" FontSize="20" Width="200"/>
-                <CheckBox Content="Climat control" FontSize="20" Width="200"/>
-                <CheckBox Content="Tonirovka" FontSize="20" Width="200"/>
-                <CheckBox Content="Display" FontSize="20" Width="200"/>
-                <CheckBox Content="Nitro" FontSize="20" Width="200"/>
+                <CheckBox Content="Cruise control" FontSize="20" Width="200" Checked="FeatureCheckBox_Checked" x:Name="CruiseControl"/>
+                <CheckBox Content="Climat control" FontSize="20" Width="200" Checked="FeatureCheckBox_Checked" x:Name="ClimatControl"/>
+                <CheckBox Content="Tonirovka" FontSize="20" Width="200" Checked="FeatureCheckBox_Checked" x:Name="Tonirovka"/>
+                <CheckBox Content="Display" FontSize="20" Width="200" Checked="FeatureCheckBox_Checked" x:Name="Display"/>
+                <CheckBox Content="Nitro" FontSize="20" Width="200" Checked="FeatureCheckBox_Checked" x:Name="Nitro"/>
 
             </StackPanel>
 
             <Frame x:Name="ModelPageFrame"></Frame>
             <StackPanel Orientation="Horizontal">
-                <Button Content="Next" x:Name="FNextButton" Margin="280,20,20,20"  Width="70" Height="30" HorizontalAlignment="Center" RenderTransformOrigin="-0.899,0.574" Click="NextButton_Click"/>
-                <Button Content="Previous" x:Name="FBackButton"   Width="70" Height="30" RenderTransformOrigin="-0.899,0.574" Click="FBackButton_Click"/>
+                <Button Content="Next" Background="Azure" x:Name="FNextButton" Margin="280,20,20,20"  Width="70" Height="30" HorizontalAlignment="Center" RenderTransformOrigin="-0.899,0.574" Click="NextButton_Click"/>
+                <Button Content="Previous" Background="Azure" x:Name="FBackButton"   Width="70" Height="30" RenderTransformOrigin="-0.899,0.574" Click="FBackButton_Click"/>
             </StackPanel>
         </StackPanel>
     </Grid>

@@ -15,8 +15,10 @@ namespace WpfApp5
         public string EngineType { get; set; }
         public string color { get; set; }
 
-        public List<String> Features { get; set; }
+        public List<String> Features = new List<String>();
 
+        public static Car CarInstance = new Car();
 
     }
+
 }

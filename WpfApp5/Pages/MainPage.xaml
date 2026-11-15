@@ -10,8 +10,8 @@
 
     <Grid>
         <StackPanel>
-            <TextBlock Text="Car Configurator" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="45"/>
-            <Button x:Name="ModelButton" Content="Choose model and engine type" Width="200" Margin="50" Click="ModelButton_Click"></Button>
+            <TextBlock Text="Car Configurator" VerticalAlignment="Center"  HorizontalAlignment="Center" FontSize="45"/>
+            <Button x:Name="ModelButton" Background="Azure"  Content="Choose model and engine type" Width="200" Margin="50" Click="ModelButton_Click"></Button>
 
 
         </StackPanel>

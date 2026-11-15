@@ -11,10 +11,76 @@
     <Grid>
         <StackPanel>
             <TextBlock Text="Check" Width="82" FontSize="30" Margin="20,20,20,20"/>
-            <TextBlock Text="Check" Width="82" FontSize="30" Margin="10,10,10,10"/>
-            <TextBlock Text="Check" Width="82" FontSize="30" Margin="10,10,10,10"/>
-            
-            
+            <StackPanel Orientation="Horizontal" Width="773">
+                <TextBlock Text="Model" Width="200" FontSize="22"/>
+                <TextBlock Text="Model" Width="303" FontSize="22" x:Name="Model"/>
+                <TextBlock Text="0$" Width="236" FontSize="22" x:Name="ModelPrice"/>
+                
+                
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Width="773">
+                <TextBlock Text="Engine Type" Width="201" FontSize="22"/>
+                <TextBlock Text="Engine Type" Width="303" FontSize="22" x:Name="EngineType"/>
+                <TextBlock Text="0$" Width="264" FontSize="22" x:Name="EngineTypePrice"/>
+
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Width="773">
+                <TextBlock Text="Color" Width="204" FontSize="22"/>
+                <TextBlock Text="Color" Width="298" FontSize="22" x:Name="Color"/>
+                <TextBlock Text="0$" Width="264" FontSize="22" x:Name="ColorPrice"/>
+
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Width="773">
+                <TextBlock Text= "Cruise control" Width="205" FontSize="22"/>
+                <TextBlock Text= "No" Width="300" FontSize="22" x:Name="CruiseControl"/>
+                <TextBlock Text="0$" Width="264" FontSize="22" x:Name="CruiseControlPrice"/>
+
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Width="773">
+                <TextBlock Text= "Climat control" Width="205" FontSize="22"/>
+                <TextBlock Text= "No" Width="300" FontSize="22" x:Name="ClimatControl"/>
+                <TextBlock Text="0$" Width="264" FontSize="22" x:Name="ClimatControlPrice"/>
+
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Width="773">
+                <TextBlock Text= "Tonirovka" Width="205" FontSize="22"/>
+                <TextBlock Text= "No" Width="300" FontSize="22" x:Name="Tonirovka"/>
+                <TextBlock Text="0$" Width="264" FontSize="22" x:Name="TonirovkaPrice"/>
+
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Width="773">
+                <TextBlock Text="Display" Width="205" FontSize="22"/>
+                <TextBlock Text= "No" Width="300" FontSize="22" x:Name="Display"/>
+                <TextBlock Text="0$" Width="264" FontSize="22" x:Name="DisplayPrice"/>
+
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Width="773">
+                <TextBlock Text="Nitro" Width="205" FontSize="22"/>
+                <TextBlock Text= "No" Width="300" FontSize="22" x:Name="Nitro"/>
+                <TextBlock Text="0$" Width="264" FontSize="22" x:Name="NitroPrice"/>
+
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Width="775" Background="Azure">
+                <TextBlock Text="Total:" Width="334" FontSize="25" FontWeight="Bold"/>
+
+                <TextBlock Text="0$" Width="264" FontSize="25" x:Name="Total" FontWeight="Bold"/>
+
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Next" x:Name="CNextButton" Background="Azure" Margin="280,20,20,20"  Width="70" Height="30" HorizontalAlignment="Center" RenderTransformOrigin="-0.899,0.574" Click="NextButton_Click"/>
+                <Button Content="Previous" x:Name="CBackButton" Background="Azure"  Width="70" Height="30" RenderTransformOrigin="-0.899,0.574" Click="FBackButton_Click"/>
+            </StackPanel>
+
+
 
         </StackPanel>
     </Grid>

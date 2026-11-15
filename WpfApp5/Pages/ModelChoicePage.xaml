@@ -12,28 +12,28 @@
         <StackPanel>
             <TextBlock Text="Choose car model" Margin="20,10,20,20" FontSize="20" Width="200"></TextBlock>
             <StackPanel>
-                <RadioButton Content="Lada Granta" FontSize="20" Width="200"/>
-                <RadioButton Content="Tenet T7" FontSize="20" Width="200"/>
-                <RadioButton Content="Haval Jolion" FontSize="20" Width="200"/>
-                <RadioButton Content="Lada Vesta" FontSize="20" Width="200"/>
+                <RadioButton Content="Lada Granta"  FontSize="20" Width="200" Checked="ModelRadioButton_Checked" x:Name="Granta" IsChecked="True"/>
+                <RadioButton Content="Tenet T7" FontSize="20" Width="200" x:Name="T7"  Checked="ModelRadioButton_Checked"/>
+                <RadioButton Content="Haval Jolion" FontSize="20" Width="200" x:Name="Jolion"  Checked="ModelRadioButton_Checked"/>
+                <RadioButton Content="Lada Vesta" FontSize="20" Width="200" x:Name="Vesta"  Checked="ModelRadioButton_Checked"/>
 
             </StackPanel>
 
             <TextBlock Text="Choose the engine type" Margin="20,20,20,20" FontSize="20" Width="218"></TextBlock>
 
             <StackPanel>
-                <RadioButton Content="Gasoline" FontSize="20" Width="200"/>
-                <RadioButton Content="Dizel" FontSize="20" Width="200"/>
-                <RadioButton Content="Gas" FontSize="20" Width="200"/>
-                <RadioButton Content="Hyprid" FontSize="20" Width="200"/>
-                <RadioButton Content="Electric" FontSize="20" Width="200"/>
+                <RadioButton Content="Gasoline" FontSize="20" Width="200" x:Name="Gasoline" Checked="EnigneTypeRadioButton_Checked" IsChecked="True"/>
+                <RadioButton Content="Dizel" FontSize="20" Width="200" x:Name="Dizel" Checked="EnigneTypeRadioButton_Checked"/>
+                <RadioButton Content="Gas" FontSize="20" Width="200" x:Name="Gas" Checked="EnigneTypeRadioButton_Checked"/>
+                <RadioButton Content="Hyprid" FontSize="20" Width="200" x:Name="Hyprid" Checked="EnigneTypeRadioButton_Checked"/>
+                <RadioButton Content="Electric" FontSize="20" Width="200" x:Name="Electric" Checked="EnigneTypeRadioButton_Checked"/>
 
             </StackPanel>
 
             <Frame x:Name="ModelPageFrame"></Frame>
             <StackPanel Orientation="Horizontal">
-                <Button Content="Next" x:Name="NextButton" Margin="280,20,20,20"  Width="70" Height="30" HorizontalAlignment="Center" RenderTransformOrigin="-0.899,0.574" Click="NextButton_Click"/>
-                <Button Content="Previous" x:Name="BackButton"   Width="70" Height="30" RenderTransformOrigin="-0.899,0.574"/>
+                <Button Content="Next" Background="Azure" x:Name="NextButton" Margin="280,20,20,20"  Width="70" Height="30" HorizontalAlignment="Center" RenderTransformOrigin="-0.899,0.574" Click="NextButton_Click"/>
+                <Button Content="Previous" x:Name="BackButton" Background="Azure"  Width="70" Height="30" RenderTransformOrigin="-0.899,0.574"/>
             </StackPanel>
         </StackPanel>
     </Grid>

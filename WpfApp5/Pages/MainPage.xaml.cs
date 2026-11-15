@@ -24,7 +24,7 @@ namespace WpfApp5.Pages
         {
             InitializeComponent();
         }
-
+        public static int PbValue = 0;
         private void ModelButton_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new ModelChoicePage());

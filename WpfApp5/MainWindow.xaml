@@ -5,8 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp5"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Frame x:Name="MainFrame" Source="Pages/MainPage.xaml" NavigationUIVisibility="Hidden"></Frame>
+        Title="MainWindow" Height="492" Width="800">
+
+    <Grid x:Name="MainGrid">
+        <Grid x:Name="PBgrid">
+            <StackPanel Orientation="Horizontal">
+                
+            <ProgressBar x:Name="GlobalProgressBar"
+                         Width="350" 
+                         Height="6" 
+                         Foreground="LightSkyBlue"
+                         Margin="220,5,10,0"
+                         IsIndeterminate="False"
+                         Value="0"
+                         VerticalAlignment="Top" 
+                         HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                <ProgressBar.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.179"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ProgressBar.RenderTransform>
+            </ProgressBar>
+                <TextBlock Text="Total sum: 0$" FontSize="15" x:Name="TotalSumDisplay"></TextBlock>
+
+            </StackPanel>
+        </Grid>
+        <Frame x:Name="MainFrame" Source="Pages/MainPage.xaml" NavigationUIVisibility="Hidden"  Margin="0,10,-10,0" Navigated="MainFrame_Navigated" ></Frame>
     </Grid>
 </Window>

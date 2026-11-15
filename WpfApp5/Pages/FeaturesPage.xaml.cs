@@ -25,6 +25,7 @@ namespace WpfApp5.Pages
             InitializeComponent();
         }
 
+        public static int PbValue = 40;
         private void NextButton_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new CheckPage());
@@ -33,6 +34,60 @@ namespace WpfApp5.Pages
         private void FBackButton_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
+        }
+
+        private void ColorRadioButtonChecked(object sender, RoutedEventArgs e)
+        {
+            if(White.IsChecked == true)
+            {
+                Car.CarInstance.color = "White";
+            }
+            else if(Black != null && Black.IsChecked == true)
+            {
+                Car.CarInstance.color = "Black";
+            }
+            else if(Red != null && Red.IsChecked == true)
+            {
+                Car.CarInstance.color = "Red";
+            }
+            else if(Yellow != null && Yellow.IsChecked == true)
+            {
+                Car.CarInstance.color = "Yellow";
+            }
+            else if( Magenta != null && Magenta.IsChecked == true)
+            {
+                Car.CarInstance.color = "Magenta";
+            }
+
+            Check.Calculate();
+        }
+
+        
+        private void FeatureCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            Car.CarInstance.Features.Clear();
+            if (CruiseControl.IsChecked == true)
+            {
+                Car.CarInstance.Features.Add("CruiseControl");
+            }
+            if (ClimatControl.IsChecked == true)
+            {
+                Car.CarInstance.Features.Add("ClimatControl");
+            }
+            if (Display.IsChecked == true)
+            {
+                Car.CarInstance.Features.Add("Display");
+            }
+            if (Tonirovka.IsChecked == true)
+            {
+                Car.CarInstance.Features.Add("Tonirovka");
+            }
+            if (Nitro.IsChecked == true)
+            {
+                Car.CarInstance.Features.Add("Nitro");
+            }
+
+            Check.Calculate();
         }
     }
 }

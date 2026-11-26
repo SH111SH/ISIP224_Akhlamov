@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cinemma;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,26 @@ namespace Cinema.Pages
         public LoginPage()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new RegistrationPage());
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if(Core.Context.User.FirstOrDefault(i=> i.Login == Login.Text && i.Password == Password.Password) != null)
+            {
+                MessageBox.Show("Успешный вход");
+                
+            }
+            else
+            {
+                MessageBox.Show("Неверный логин или пароль");
+                Login.Text = "";
+                Password.Password = "";
+            }
         }
     }
 }

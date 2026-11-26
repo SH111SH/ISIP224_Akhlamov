@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cinema;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Cinema;
 
-namespace CinemaManagment
+namespace Cinemma
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
@@ -26,7 +26,7 @@ namespace CinemaManagment
             InitializeComponent();
             LoginWindow loginWindow = new LoginWindow();
             loginWindow.Show();
-            this.Hide();
+            this.Close();
         }
     }
 }

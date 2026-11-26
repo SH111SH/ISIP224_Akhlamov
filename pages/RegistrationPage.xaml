@@ -10,13 +10,13 @@
 
     <Grid>
         <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <TextBlock Text="Log in" VerticalAlignment="Stretch"  FontSize="35"  FontWeight="UltraBlack" HorizontalAlignment="Center" FontStretch="Normal" />
-            <TextBlock Margin="15,60,15,0" Text="Login"  FontSize="13" FontWeight="bold"/>
-            <TextBox Margin="15,0,15,0"  TextAlignment="Center" FontSize="20" FontWeight="Bold" BorderBrush="Coral"  BorderThickness="5,5,5,5" Height="39"></TextBox>
-            <TextBlock Text="Password" FontSize="13" FontWeight="bold" Margin="15,30,15,0"/>
-            <PasswordBox Margin="15,0,15,0" FontSize="20" FontWeight="Bold" PasswordChar="*" BorderBrush="Coral" InputMethod.InputScope="Password"  BorderThickness="5,5,5,5" Height="39"></PasswordBox> <TextBlock Text="Password" FontSize="13" FontWeight="bold" Margin="15,30,15,0"/>
-            <PasswordBox Margin="15,0,15,0" FontSize="20" FontWeight="Bold" PasswordChar="*" BorderBrush="Coral" InputMethod.InputScope="Password"  BorderThickness="5,5,5,5" Height="39"></PasswordBox>
-            <Button Content="Log in" FontWeight="Bold" BorderBrush="Coral" FontSize="20"  BorderThickness="5,5,5,5" Height="39" Width="200" Margin="15,55,15,0"/>
+            <TextBlock Text="Registration" VerticalAlignment="Stretch"  FontSize="35"  FontWeight="UltraBlack" HorizontalAlignment="Center" FontStretch="Normal" />
+            <TextBlock Margin="15,40,15,0" Text="Login"  FontSize="13" FontWeight="bold"/>
+            <TextBox x:Name="Login" Margin="15,0,15,0"  TextAlignment="Center" FontSize="20" FontWeight="Bold" BorderBrush="Coral"  BorderThickness="5,5,5,5" Height="39"></TextBox>
+            <TextBlock  Text="Password" FontSize="13" FontWeight="bold" Margin="15,30,15,0"/>
+            <PasswordBox x:Name="Password1" Margin="15,0,15,0" FontSize="20" FontWeight="Bold" PasswordChar="*" BorderBrush="Coral" InputMethod.InputScope="Password"  BorderThickness="5,5,5,5" Height="39"></PasswordBox> <TextBlock Text="Password" FontSize="13" FontWeight="bold" Margin="15,30,15,0"/>
+            <PasswordBox x:Name="Password2" Margin="15,0,15,0" FontSize="20" FontWeight="Bold" PasswordChar="*" BorderBrush="Coral" InputMethod.InputScope="Password"  BorderThickness="5,5,5,5" Height="39"></PasswordBox>
+            <Button Content="Registration" FontWeight="Bold" BorderBrush="Coral" FontSize="20"  BorderThickness="5,5,5,5" Height="39" Width="200" Margin="15,55,15,0" Click="Button_Click"/>
             
 
 
